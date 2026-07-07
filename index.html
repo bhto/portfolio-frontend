@@ -1,124 +1,228 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="fr" class="dark">
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="aRucDdxABc4Fyi1CS2Di1IVn-oArYWCN3L6gNUnLrEM" />
-    <meta name="description"
-        content="Portfolio de Bérenger, développeur Fullstack spécialisé dans la création d'applications web et mobiles modernes, performantes et sécurisées.">
-    <meta name="keywords"
-        content="Bérenger, développeur, fullstack, web, mobile, ClipboardX, React, Three.js, portfolio">
+    
+    <title>Bérenger - Développeur Web Fullstack</title>
+    <meta name="description" content="Portfolio de Bérenger, développeur Fullstack spécialisé dans la création d'applications web et mobiles modernes, performantes et sécurisées.">
+    <meta name="keywords" content="Bérenger, développeur, fullstack, web, mobile, ClipboardX, React, Three.js, portfolio">
     <meta name="author" content="Bérenger">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://berenger.vercel.app/">
     <meta property="og:title" content="Bérenger - Développeur Web Fullstack">
-    <meta property="og:description"
-        content="Découvrez les réalisations de Bérenger, développeur Fullstack et créateur de ClipboardX.">
+    <meta property="og:description" content="Découvrez les réalisations de Bérenger, développeur Fullstack et créateur de ClipboardX.">
     <meta property="og:image" content="/icon.png">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://berenger.vercel.app/">
-    <meta property="twitter:title" content="Bérenger - Développeur Web Fullstack">
-    <meta property="twitter:description"
-        content="Découvrez les réalisations de Bérenger, développeur Fullstack et créateur de ClipboardX.">
-    <meta property="twitter:image" content="/icon.png">
-
-    <title>Bérenger - Développeur Web Fullstack</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@700&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@700&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/src/styles.css" />
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
-<body>
-    <canvas id="webgl-canvas" aria-hidden="true"></canvas>
-    <main class="relative w-full min-h-screen">
-        <div class="flex flex-col mx-6 my-10 max-[590px]:mx-4 max-[590px]:my-8 md:mx-20 md:my-22">
-            <header>
-                <h1 class="text-4xl uppercase font-bold">Bérenger</h1>
-                <h2 class="text-normal uppercase bg-white text-black mt-1 w-fit px-2 py-1">Développeur fullstack &
-                    créateur de ClipboardX</h2>
-            </header>
-            <div class="mt-10">
-                <p class="text-sm opacity-75">Fondateur / Développeur fullstack et de <a
-                        href="https://clipboardx.vercel.app" target="_blank"
-                        class="opacity-50 hover:opacity-100 duration-200"
-                        aria-label="Visiter le site de ClipboardX">@ClipboardX</a></p>
-                <p class="text-sm opacity-75">Une solution pour gérer convenablement votre presse-papier</p>
-            </div>
-            <div class="mt-10">
-                <p class="text-sm opacity-75">Quelques réalisations</p>
-                <ul class="mt-2 space-y-2">
-                    <li>
-                        <a href="https://clipboardx.vercel.app" target="_blank" rel="noopener" class="block">
-                            <span class="opacity-60">ClipboardX</span> - <span class="opacity-85">Application pour gérer
-                                son presse-papier.</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://quiz-min.onrender.com" target="_blank" rel="noopener" class="block">
-                            <span class="opacity-60">Quiz Min</span> - <span class="opacity-85">Application interactive
-                                pour tester sa culture générale.</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://numeric-clock.onrender.com" target="_blank" rel="noopener" class="block">
-                            <span class="opacity-60">Numeric Clock</span> - <span class="opacity-85">Horloge mondiale
-                                avec mode plein écran pour le travail.</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://brice-cook.vercel.app/" target="_blank" rel="noopener" class="block">
-                            <span class="opacity-60">BriceCook</span> - <span class="opacity-85">Une landing page pour
-                                un chef de cuisine.</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="mt-10 flex flex-wrap gap-2">
-                <span class="bg-white text-black px-2 py-1 text-sm rounded-lg">ergonomie</span>
-                <span class="bg-white text-black px-2 py-1 text-sm rounded-lg">performances</span>
-                <span class="bg-white text-black px-2 py-1 text-sm rounded-lg">sécurité</span>
-                <span class="bg-white text-black px-2 py-1 text-sm rounded-lg">automatisation</span>
-                <span class="bg-white text-black px-2 py-1 text-sm rounded-lg">scrapping</span>
-            </div>
-            <div class="mt-10">
-                <p class="text-sm opacity-75 mb-3">Stack technique & Technologies</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-white/10 text-white border border-white/20 px-2 py-1 text-sm rounded-lg hover:bg-white/20 transition duration-200">TypeScript</span>
-                    <span class="bg-white/10 text-white border border-white/20 px-2 py-1 text-sm rounded-lg hover:bg-white/20 transition duration-200">JavaScript</span>
-                    <span class="bg-white/10 text-white border border-white/20 px-2 py-1 text-sm rounded-lg hover:bg-white/20 transition duration-200">React</span>
-                    <span class="bg-white/10 text-white border border-white/20 px-2 py-1 text-sm rounded-lg hover:bg-white/20 transition duration-200">Three.js</span>
-                    <span class="bg-white/10 text-white border border-white/20 px-2 py-1 text-sm rounded-lg hover:bg-white/20 transition duration-200">Node.js</span>
-                    <span class="bg-white/10 text-white border border-white/20 px-2 py-1 text-sm rounded-lg hover:bg-white/20 transition duration-200">Tailwind CSS</span>
-                    <span class="bg-white/10 text-white border border-white/20 px-2 py-1 text-sm rounded-lg hover:bg-white/20 transition duration-200">HTML5 & CSS3</span>
-                    <span class="bg-white/10 text-white border border-white/20 px-2 py-1 text-sm rounded-lg hover:bg-white/20 transition duration-200">WebGL</span>
-                    <span class="bg-white/10 text-white border border-white/20 px-2 py-1 text-sm rounded-lg hover:bg-white/20 transition duration-200">Next.js</span>
-                    <span class="bg-white/10 text-white border border-white/20 px-2 py-1 text-sm rounded-lg hover:bg-white/20 transition duration-200">Git</span>
-                    <span class="bg-white/10 text-white border border-white/20 px-2 py-1 text-sm rounded-lg hover:bg-white/20 transition duration-200">Linux</span>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#0b0a0f] text-[#f4f4f6] font-sans antialiased min-h-screen selection:bg-purple-500/30">
+
+    <canvas id="webgl-canvas" class="fixed inset-0 -z-10 pointer-events-none opacity-40" aria-hidden="true"></canvas>
+
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-20 flex flex-col gap-12">
+        
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="flex items-center gap-2 text-purple-400 text-xs font-semibold tracking-wider uppercase mb-2">
+                    <span class="material-icons-round text-sm animate-pulse">auto_awesome</span>
+                    Full Stack Orchestrator
                 </div>
-            </div>
-            <div class="mt-10">
-                <p class="text-sm opacity-75">Vous pouvez consulter mon profil github <a href="https://github.com/bhto"
-                        target="_blank" class="opacity-50 hover:opacity-100 duration-200"
-                        aria-label="Voir mon profil GitHub">@bhto</a> pour voir plus de projets,
-                    <br class="hidden sm:inline"> ou me contacter via mon adresse gmail <a href="mailto:llsberenger@gmail.com"
-                        class="opacity-50 hover:opacity-100 duration-200" target="_blank"
-                        aria-label="M'envoyer un email">llsberenger@gmail.com</a> <br class="hidden sm:inline"> ou via <a
-                        href="https://wa.me/22990817575" target="_blank"
-                        class="opacity-50 hover:opacity-100 duration-200"
-                        aria-label="Me contacter sur WhatsApp">WhatsApp</a>.
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white">
+                    Bérenger <span class="text-transparent bg-clip-text bg-gradient-to-r md:bg-gradient-to-b from-purple-400 to-indigo-500">Hto</span>
+                </h1>
+                <p class="mt-3 text-base text-zinc-400 max-w-xl leading-relaxed">
+                    Crafting fluid digital experiences where code meets human-centric design. Focused on scalable ecosystems and robust architectures.
                 </p>
             </div>
-        </div>
-    </main>
+            
+            <div class="flex items-center gap-3">
+                <a href="mailto:llsberenger@gmail.com" class="inline-flex items-center gap-2 bg-[#5841d8] hover:bg-[#4732b7] text-white px-5 py-3 rounded-2xl font-medium text-sm transition-all duration-300 shadow-lg shadow-purple-900/20 group">
+                    <span class="material-icons-round text-sm group-hover:translate-x-0.5 transition-transform">mail</span>
+                    Let's Connect
+                </a>
+                <a href="https://github.com/bhto" target="_blank" class="p-3 bg-[#16141f] border border-zinc-800 hover:border-zinc-700 rounded-2xl text-zinc-400 hover:text-white transition-colors" aria-label="GitHub">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                </a>
+                <a href="https://wa.me/22990817575" target="_blank" class="p-3 bg-[#16141f] border border-zinc-800 hover:border-zinc-700 rounded-2xl text-zinc-400 hover:text-emerald-400 transition-colors" aria-label="WhatsApp">
+                    <span class="material-icons-round text-xl">chat</span>
+                </a>
+            </div>
+        </header>
+
+        <main class="grid grid-cols-1 md:grid-cols-12 gap-5 auto-rows-[auto]">
+            
+            <section class="md:col-span-7 bg-[#16141f] border border-zinc-800/60 rounded-3xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="flex justify-between items-start mb-12">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center font-bold text-white shadow-md">
+                        BH
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs rounded-xl">
+                        <span class="material-icons-round text-sm text-indigo-400">location_on</span>
+                        Bénin
+                    </span>
+                </div>
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-semibold tracking-tight text-white mb-4 leading-tight">
+                        Solving complex problems through <span class="text-zinc-400 font-normal">elegant codebases.</span>
+                    </h3>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="text-xs font-medium px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-400">Ergonomie</span>
+                        <span class="text-xs font-medium px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-400">Performances</span>
+                        <span class="text-xs font-medium px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-400">Sécurité</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="md:col-span-5 bg-[#16141f] border border-zinc-800/60 rounded-3xl p-6 flex flex-col justify-between">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-sm font-medium uppercase tracking-wider text-zinc-400 flex items-center gap-2">
+                        <span class="material-icons-round text-base text-purple-400">folder_open</span> Réalisations
+                    </h3>
+                </div>
+                
+                <div class="space-y-3">
+                    <a href="https://clipboardx.vercel.app" target="_blank" class="block p-3.5 bg-zinc-900/50 hover:bg-zinc-900 border border-zinc-800/40 rounded-2xl transition-all group">
+                        <div class="flex justify-between items-start">
+                            <h4 class="font-medium text-white group-hover:text-purple-400 transition-colors flex items-center gap-1.5 text-sm">
+                                ClipboardX
+                                <span class="material-icons-round text-xs opacity-0 group-hover:opacity-100 transition-opacity">north_east</span>
+                            </h4>
+                            <span class="text-[10px] bg-purple-500/10 text-purple-400 px-2 py-0.5 rounded-full font-medium">Flagship</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 mt-1">Application intelligente pour synchroniser et gérer son presse-papier localement.</p>
+                    </a>
+                    <a href="https://quiz-min.onrender.com" target="_blank" class="block p-3.5 bg-zinc-900/50 hover:bg-zinc-900 border border-zinc-800/40 rounded-2xl transition-all group">
+                        <h4 class="font-medium text-white group-hover:text-purple-400 transition-colors flex items-center gap-1.5 text-sm">
+                            Quiz Min
+                            <span class="material-icons-round text-xs opacity-0 group-hover:opacity-100 transition-opacity">north_east</span>
+                        </h4>
+                        <p class="text-xs text-zinc-400 mt-1">Application interactive pour tester sa culture générale de manière minimaliste.</p>
+                    </a>
+                    <a href="https://brice-cook.vercel.app/" target="_blank" class="block p-3.5 bg-zinc-900/50 hover:bg-zinc-900 border border-zinc-800/40 rounded-2xl transition-all group">
+                        <h4 class="font-medium text-white group-hover:text-purple-400 transition-colors flex items-center gap-1.5 text-sm">
+                            BriceCook
+                            <span class="material-icons-round text-xs opacity-0 group-hover:opacity-100 transition-opacity">north_east</span>
+                        </h4>
+                        <p class="text-xs text-zinc-400 mt-1">Landing page ultra-performante et optimisée pour un chef cuisinier.</p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="md:col-span-4 bg-[#16141f] border border-zinc-800/60 rounded-3xl p-6">
+                <h3 class="text-sm font-medium uppercase tracking-wider text-zinc-400 flex items-center gap-2 mb-6">
+                    <span class="material-icons-round text-base text-purple-400">work_outline</span> Expérience
+                </h3>
+                <div class="relative border-l border-zinc-800 pl-4 space-y-6">
+                    <div class="relative">
+                        <span class="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-purple-500 shadow-sm shadow-purple-500/50"></span>
+                        <span class="text-[11px] font-medium text-purple-400">2024 - Présent</span>
+                        <h4 class="text-sm font-medium text-white mt-0.5">Développeur Fullstack Indépendant</h4>
+                        <p class="text-xs text-zinc-400 mt-1">Conception de SaaS, d'automatisation et d'architectures web robustes (Next.js, Node.js).</p>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                        <span class="text-[11px] font-medium text-zinc-500">Autodidacte & Open Source</span>
+                        <h4 class="text-sm font-medium text-zinc-300 mt-0.5">Créateur de Solutions Innovantes</h4>
+                        <p class="text-xs text-zinc-500 mt-1">Développement de scripts d'automatisation, scraping et intégrations 3D (WebGL / Three.js).</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="md:col-span-4 bg-[#16141f] border border-zinc-800/60 rounded-3xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-sm font-medium uppercase tracking-wider text-zinc-400 flex items-center gap-2 mb-6">
+                        <span class="material-icons-round text-base text-purple-400">school</span> Academic Path
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <div class="p-2 bg-purple-500/10 text-purple-400 rounded-xl h-fit">
+                                <span class="material-icons-round text-lg">terminal</span>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-white">Licence Pro — SIL</h4>
+                                <p class="text-xs text-zinc-400 mt-0.5">Systèmes Informatiques et Logiciels</p>
+                                <div class="flex gap-2 mt-1.5">
+                                    <span class="text-[10px] bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded text-zinc-400">Génie Logiciel</span>
+                                    <span class="text-[10px] bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded text-zinc-400">Systèmes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 p-3 bg-zinc-900/40 border border-zinc-800/50 rounded-2xl flex items-center gap-3">
+                    <span class="material-icons-round text-xl text-yellow-500/80">workspace_premium</span>
+                    <p class="text-xs text-zinc-400">Focus permanent sur la scalabilité et l'optimisation des performances.</p>
+                </div>
+            </section>
+
+            <section class="md:col-span-4 bg-gradient-to-b from-[#31257c] to-[#1d154d] border border-purple-900/40 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden text-white">
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-purple-500/20 rounded-full blur-2xl pointer-events-none"></div>
+                <div>
+                    <h3 class="text-sm font-medium uppercase tracking-wider text-purple-200 flex items-center gap-2 mb-5">
+                        <span class="material-icons-round text-base">layers</span> Modern Stack
+                    </h3>
+                    
+                    <div class="grid grid-cols-3 gap-2.5">
+                        <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-colors">
+                            <span class="text-xs font-semibold text-purple-200">TS</span>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-colors">
+                            <span class="text-xs font-semibold text-purple-200">React</span>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-colors">
+                            <span class="text-xs font-semibold text-purple-200">Next.js</span>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-colors">
+                            <span class="text-xs font-semibold text-purple-200">Node</span>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-colors">
+                            <span class="text-xs font-semibold text-purple-200">Three.js</span>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-colors">
+                            <span class="text-xs font-semibold text-purple-200">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-[11px] text-purple-200/60 mt-5 italic">
+                    Constantly evolving. Currently engineering fast web ecosystems and interactive WebGL tools.
+                </p>
+            </section>
+
+        </main>
+
+        <footer class="border-t border-zinc-900 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
+            <p>© 2026 Bérenger. Built with precise HTML, TypeScript & Tailwind CSS.</p>
+            <div class="flex gap-4">
+                <a href="https://github.com/bhto" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                <a href="mailto:llsberenger@gmail.com" class="hover:text-white transition-colors">Email</a>
+                <a href="https://wa.me/22990817575" class="hover:text-white transition-colors">WhatsApp</a>
+            </div>
+        </footer>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
 </body>
-
 </html>
