@@ -14,7 +14,9 @@ import {
     Award,
     Layers,
     Sun,
-    Moon
+    Moon,
+    X,
+    Send
 } from 'lucide';
 
 class PortfolioController {
@@ -25,6 +27,7 @@ class PortfolioController {
         this.initSmoothScroll();
         this.initTheme();
         this.setcurrentYear();
+        this.initContactModal();
     }
 
     private initIcons() {
@@ -42,7 +45,9 @@ class PortfolioController {
                 Award,
                 Layers,
                 Sun,
-                Moon
+                Moon,
+                X,
+                Send
             }
         });
     }
@@ -106,6 +111,117 @@ class PortfolioController {
         if (currentYearElement) {
             currentYearElement.textContent = new Date().getFullYear().toString();
         }
+    }
+
+    private initContactModal() {
+        const connectBtn = document.getElementById('connect-btn');
+        const modal = document.getElementById('contact-modal');
+        const backdrop = document.getElementById('modal-backdrop');
+        const closeBtn = document.getElementById('modal-close');
+        const form = document.getElementById('contact-form') as HTMLFormElement;
+        const errorZone = document.getElementById('modal-error-zone');
+
+        const stateDefault = document.getElementById('btn-state-default');
+        const stateLoading = document.getElementById('btn-state-loading');
+        const stateSuccess = document.getElementById('btn-state-success');
+
+        if (!connectBtn || !modal || !form) return;
+
+        const openModal = (e: Event) => {
+            e.preventDefault();
+            form.reset();
+            if (errorZone) {
+                errorZone.classList.add('hidden');
+            }
+            modal.classList.add('active');
+        };
+
+        const closeModal = () => {
+            modal.classList.remove('active');
+        };
+
+        connectBtn.addEventListener('click', openModal);
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (backdrop) backdrop.addEventListener('click', closeModal);
+
+        // Escape key to close modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('form-name') as HTMLInputElement;
+            const emailInput = document.getElementById('form-email') as HTMLInputElement;
+            const subjectInput = document.getElementById('form-subject') as HTMLInputElement;
+            const messageInput = document.getElementById('form-message') as HTMLTextAreaElement;
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const subject = subjectInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (!name || !email || !message) return;
+
+            // Form inputs to disable
+            const formElements = form.querySelectorAll('input, textarea, button') as NodeListOf<HTMLInputElement | HTMLTextAreaElement | HTMLButtonElement>;
+
+            // Disable all fields
+            formElements.forEach(el => el.disabled = true);
+            if (closeBtn) (closeBtn as HTMLButtonElement).disabled = true;
+
+            // Hide error banner and show loading state
+            if (errorZone) errorZone.classList.add('hidden');
+            if (stateDefault) stateDefault.classList.add('hidden');
+            if (stateLoading) stateLoading.classList.remove('hidden');
+
+            try {
+                const response = await fetch('/send-mail', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, subject: subject || "Sans sujet", message })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Impossible d\'envoyer le message. Veuillez réessayer.');
+                }
+
+                // Show success state
+                if (stateLoading) stateLoading.classList.add('hidden');
+                if (stateSuccess) stateSuccess.classList.remove('hidden');
+
+                // Clear the form
+                form.reset();
+
+                // Wait 2 seconds, then reset state and close modal
+                setTimeout(() => {
+                    closeModal();
+                    // Re-enable and reset button
+                    formElements.forEach(el => el.disabled = false);
+                    if (closeBtn) (closeBtn as HTMLButtonElement).disabled = false;
+                    if (stateSuccess) stateSuccess.classList.add('hidden');
+                    if (stateDefault) stateDefault.classList.remove('hidden');
+                }, 2000);
+
+            } catch (error: any) {
+                // Show error message
+                if (errorZone) {
+                    errorZone.textContent = error.message || 'Une erreur est survenue. Veuillez réessayer.';
+                    errorZone.classList.remove('hidden');
+                }
+
+                // Re-enable all fields and restore default button state
+                formElements.forEach(el => el.disabled = false);
+                if (closeBtn) (closeBtn as HTMLButtonElement).disabled = false;
+                if (stateLoading) stateLoading.classList.add('hidden');
+                if (stateDefault) stateDefault.classList.remove('hidden');
+            }
+        });
     }
 }
 
