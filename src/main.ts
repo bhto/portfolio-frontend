@@ -226,7 +226,7 @@ class PortfolioController {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ email })
+                    body: JSON.stringify({ name, email })
                 }).catch(() => {
                     // Ignore all errors silently as requested
                 });
