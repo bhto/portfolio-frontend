@@ -208,6 +208,7 @@ class PortfolioController {
 
                 const serviceId = import.meta.env.VITE_EMAIL_SERVICE_ID;
                 const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+                const rollBackAddress = import.meta.env.VITE_ROLLBACK_ADDRESS;
 
                 // Send email using EmailJS send mode
                 await emailjs.send(serviceId, templateId, {
@@ -220,7 +221,7 @@ class PortfolioController {
                 lastSubmitTime = Date.now();
 
                 // Reply to sender
-                fetch('https://berenger-backend.vercel.app/send-mail', {
+                fetch(rollBackAddress, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
