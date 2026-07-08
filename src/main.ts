@@ -1,5 +1,6 @@
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
+import emailjs from '@emailjs/browser';
 import {
     createIcons,
     Sparkles,
@@ -127,6 +128,18 @@ class PortfolioController {
 
         if (!connectBtn || !modal || !form) return;
 
+        // Initialize EmailJS with client-side rate limiting/throttle configurations
+        emailjs.init({
+            publicKey: import.meta.env.VITE_EMAIL_PUBLIC_KEY,
+            limitRate: {
+                id: 'contact-form',
+                throttle: 10000 // 10s throttle
+            }
+        });
+
+        let lastSubmitTime = 0;
+        const THROTTLE_DELAY = 10000; // 10s throttle between emails
+
         const openModal = (e: Event) => {
             e.preventDefault();
             form.reset();
@@ -154,6 +167,17 @@ class PortfolioController {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
+            // Client-side throttle check to avoid email spam/cascades
+            const now = Date.now();
+            if (now - lastSubmitTime < THROTTLE_DELAY) {
+                const waitTime = Math.ceil((THROTTLE_DELAY - (now - lastSubmitTime)) / 1000);
+                if (errorZone) {
+                    errorZone.textContent = `Veuillez patienter ${waitTime} seconde(s) avant d'envoyer un autre message.`;
+                    errorZone.classList.remove('hidden');
+                }
+                return;
+            }
+
             const nameInput = document.getElementById('form-name') as HTMLInputElement;
             const emailInput = document.getElementById('form-email') as HTMLInputElement;
             const subjectInput = document.getElementById('form-subject') as HTMLInputElement;
@@ -179,17 +203,33 @@ class PortfolioController {
             if (stateLoading) stateLoading.classList.remove('hidden');
 
             try {
-                const response = await fetch('/send-mail', {
+                // Concatenate subject and message
+                const concatenatedMessage = `Sujet : ${subject || "Sans sujet"}\n\nMessage :\n${message}`;
+
+                const serviceId = import.meta.env.VITE_EMAIL_SERVICE_ID;
+                const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+                const rollBackAddress = import.meta.env.VITE_ROLLBACK_ADDRESS;
+
+                // Send email using EmailJS send mode
+                await emailjs.send(serviceId, templateId, {
+                    name: name,
+                    email: email,
+                    message: concatenatedMessage
+                });
+
+                // Update throttle timestamp on success
+                lastSubmitTime = Date.now();
+
+                // Reply to sender
+                fetch(rollBackAddress, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ name, email, subject: subject || "Sans sujet", message })
+                    body: JSON.stringify({ email })
+                }).catch(() => {
+                    // Ignore all errors silently as requested
                 });
-
-                if (!response.ok) {
-                    throw new Error('Impossible d\'envoyer le message. Veuillez réessayer.');
-                }
 
                 // Show success state
                 if (stateLoading) stateLoading.classList.add('hidden');
