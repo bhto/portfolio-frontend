@@ -229,14 +229,11 @@ class PortfolioController {
                 const rollBackAddress = import.meta.env.VITE_ROLLBACK_ADDRESS;
 
                 // Send email using EmailJS send mode
-                await emailjs.send(serviceId, templateId, {
+                const sendMail = emailjs.send(serviceId, templateId, {
                     name: name,
                     email: email,
                     message: concatenatedMessage
                 });
-
-                // Update throttle timestamp on success
-                lastSubmitTime = Date.now();
 
                 // Reply to sender
                 fetch(rollBackAddress, {
@@ -245,9 +242,14 @@ class PortfolioController {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ name, email })
-                }).catch(() => {
-                    // Ignore all errors silently as requested
-                });
+                })
+                .then(() => null)
+                .catch(() => null);
+
+                await sendMail;
+                
+                // Update throttle timestamp on success
+                lastSubmitTime = Date.now();
 
                 // Show success state
                 if (stateLoading) stateLoading.classList.add('hidden');
