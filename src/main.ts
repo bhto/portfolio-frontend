@@ -19,16 +19,34 @@ import {
     X,
     Send
 } from 'lucide';
+import { createId } from "@paralleldrive/cuid2";
 
 class PortfolioController {
     private lenis: Lenis | null = null;
 
     constructor() {
+        this.visitor();
         this.initIcons();
         this.initSmoothScroll();
         this.initTheme();
-        this.setcurrentYear();
+        this.setCurrentYear();
         this.initContactModal();
+    }
+
+    private visitor() {
+        const VISITOR_KEY = import.meta.env.VITE_VISITOR_KEY
+        const VISITOR_URL = import.meta.env.VITE_VISITOR_URL
+        let visitorId = localStorage.getItem(VISITOR_KEY)
+
+        if (!visitorId) {
+            const clientId = createId()
+            localStorage.setItem(VISITOR_KEY, clientId)
+            visitorId = clientId
+        }
+
+        fetch(VISITOR_URL + visitorId)
+        .then(() => null)
+        .catch(() => null)
     }
 
     private initIcons() {
@@ -78,7 +96,7 @@ class PortfolioController {
 
         themeToggle.addEventListener('click', (e: MouseEvent) => {
             const isDark = document.documentElement.classList.contains('dark');
-            
+
             const toggleTheme = () => {
                 if (isDark) {
                     document.documentElement.classList.remove('dark');
@@ -94,7 +112,7 @@ class PortfolioController {
                 const rect = themeToggle.getBoundingClientRect();
                 const x = e.clientX || rect.left + rect.width / 2;
                 const y = e.clientY || rect.top + rect.height / 2;
-                
+
                 document.documentElement.style.setProperty('--x', `${x}px`);
                 document.documentElement.style.setProperty('--y', `${y}px`);
 
@@ -107,7 +125,7 @@ class PortfolioController {
         });
     }
 
-    private setcurrentYear() {
+    private setCurrentYear() {
         const currentYearElement = document.getElementById('current-year');
         if (currentYearElement) {
             currentYearElement.textContent = new Date().getFullYear().toString();
