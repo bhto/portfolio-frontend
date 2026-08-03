@@ -1,23 +1,40 @@
-# 3D Portfolio
+# Bérenger Portfolio
 
-> Interactive 3D portfolio website of Bérenger, a Fullstack developer and creator of ClipboardX.
+> Personal portfolio of Bérenger Hto, a Fullstack Developer and creator of ClipboardX.
 
-## Context
-This project is a single-page interactive 3D portfolio built with Vite, TypeScript, Tailwind CSS (v4), and Three.js. It features an interactive WebGL tunnel background that responds to mouse and touch movement, with smooth scrolling powered by Lenis.
+## Owner
 
-## Technologies
-- **Bundler & Build Tool:** Vite (v8)
-- **Language:** TypeScript (~6.0)
-- **Styling:** Tailwind CSS (v4) & Custom Vanilla CSS
-- **3D Graphics:** Three.js (v0.184)
-- **Utilities:** Lenis Smooth Scroll, Lucide Icons
+- **Name:** Bérenger Hto
+- **Role:** Fullstack Developer
+- **Primary Project:** ClipboardX
+- **Focus:** Building modern, performant, and maintainable web applications.
 
-## Key Files
-- `index.html`: Main landing page structure, metadata, SEO keywords, values, technology tags, and contact links.
-- `src/main.ts`: Main entry point setting up the Three.js scene (PerspectiveCamera, CustomTunnelCurve, WebGLRenderer), cursor position tracking (mousemove/touchmove), rendering loop, and Lenis smooth scrolling.
-- `src/styles.css`: Global styles using `@import "tailwindcss";` and styling for list items.
+## Overview
 
-## Guidelines & Rules
-- **Aesthetics:** Maintain the dark-themed, minimalist, high-quality visual style (solid white badges for values, translucent `bg-white/10` with borders for technologies).
-- **Performance:** Keep the rendering loop (`tick` in `src/main.ts`) optimized, maintaining 60 FPS. Ensure resize handlers correctly update projection matrices and renderer sizes.
-- **SEO & Semantics:** Always verify semantic elements and descriptive title/meta attributes.
+This repository contains the source code for Bérenger's personal portfolio. It presents selected projects, technical skills, background, and professional contact information. The website serves as the primary online presence for recruiters, collaborators, and potential clients.
+
+## Technology Stack
+
+- Vite
+- TypeScript
+- Tailwind CSS v4
+- Three.js
+- Lenis
+- Lucide Icons
+
+## Contact
+
+The portfolio provides links to:
+
+- GitHub
+- LinkedIn
+- Email
+- WhatsApp
+
+## Guidelines
+
+- Preserve semantic HTML and accessibility.
+- Prioritize performance and fast loading.
+- Keep the codebase simple, readable, and maintainable.
+- Follow the existing project architecture and coding conventions.
+- Prefer TypeScript best practices and avoid unnecessary dependencies.
