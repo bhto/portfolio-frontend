@@ -1,6 +1,6 @@
 # Bérenger Hto - Portfolio Interactif
 
-Un portfolio moderne, minimaliste et ultra-performant conçu sous forme de Bento Grid. Le site intègre des animations interactives, un arrière-plan WebGL et un système de transition de thème innovant.
+Un portfolio moderne, minimaliste et ultra-performant conçu sous forme de Bento Grid.
 
 ## Fonctionnalités
 
@@ -14,7 +14,6 @@ Un portfolio moderne, minimaliste et ultra-performant conçu sous forme de Bento
   - Soumission asynchrone sécurisée avec try/catch, désactivation des champs, affichage d'un spinner de chargement et bannière d'erreur discrète.
 - **Barre de défilement personnalisée** : Scrollbar webkit sur mesure s'adaptant automatiquement au thème sélectionné.
 - **Icônes Lucide** : Chargement ciblé et vectoriel des icônes pour des performances web maximales.
-- **Arrière-plan interactif** : Rendu dynamique WebGL sur canvas en tâche de fond.
 
 ## Technologies utilisées
 
